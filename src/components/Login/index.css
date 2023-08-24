@@ -1,0 +1,90 @@
+@media (min-width: 361px) {
+  .login-background {
+    background-color: #f8fafc;
+    background-size: cover;
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 89px;
+  }
+  .login-page-image {
+    height: 1024px;
+    width: 780px;
+  }
+  .login-credentials-card {
+    width: 499px;
+    height: 484px;
+    background-color: #fff;
+    margin-left: 72px;
+    padding-left: 69px;
+    padding-right: 70px;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: row;
+    width: 141px;
+    text-align: center;
+    margin-top: 41px;
+    margin-left: 120px;
+    margin-bottom: 48px;
+  }
+  .logo-img {
+    margin-top: 48px;
+    width: 54px;
+    height: 47px;
+  }
+  .logo-text {
+    color: #0284c7;
+    width: 87px;
+    height: 17px;
+    font-size: 24px;
+    font-family: Almendra SC;
+    margin-top: 71px;
+    font-weight: 400px;
+  }
+  .username-card {
+    margin-top: 51px;
+  }
+  .login-label {
+    color: #5a7184;
+    width: 88px;
+    height: 19px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 27px;
+  }
+  .login-input {
+    margin-top: 12px;
+    border-radius: 8px;
+    width: 360px;
+    outline: none;
+    height: 56px;
+    border: 1px solid #c3cad9;
+    padding-top: 18px;
+    padding-left: 20px;
+    padding-bottom: 19px;
+    margin-bottom: 27px;
+  }
+  .login-button {
+    width: 360px;
+    height: 56px;
+    border-style: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: #0284c7;
+    font-size: 18px;
+  }
+  .error-msg {
+    color: red;
+    width: 215px;
+    height: 17px;
+    text-align: center;
+    font-size: 14px;
+    margin-left: 80px;
+  }
+}
