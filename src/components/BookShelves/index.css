@@ -21,6 +21,11 @@
     margin-right: ;
     justify-content: center;
   }
+  .books-page-failure-img {
+    margin-top: 42px;
+    height: 220px;
+    width: 350px;
+  }
 
   .api-render-card {
     display: flex;

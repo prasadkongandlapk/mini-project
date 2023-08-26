@@ -64,7 +64,6 @@ class BookShelves extends Component {
     bookshelfName: 'ALL',
     booksData: [],
     searchText: '',
-    isLoading: '',
   }
 
   componentDidMount() {
@@ -116,7 +115,7 @@ class BookShelves extends Component {
     return (
       <ul className="all-books-api-result-card">
         {booksData.map(eachBook => (
-          <Link to="/bookitemdetails">
+          <Link to="/books/:bookid">
             <li className="each-book-card">
               <img
                 className="each-book-image"
@@ -159,6 +158,7 @@ class BookShelves extends Component {
   failureView = () => (
     <div className="bookshelves-failure-view">
       <img
+        className="books-page-failure-img"
         src="https://res.cloudinary.com/dh22wd8lt/image/upload/v1692938236/Group_7522_ebgftt.png"
         alt="failure view"
       />

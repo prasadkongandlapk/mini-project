@@ -15,6 +15,7 @@ specifiers:
   eslint-plugin-prettier: 3.3.1
   history: 5.0.1
   husky: 4.3.8
+  icons: 1.0.0
   jest-styled-components: 7.0.5
   js-cookie: 3.0.1
   msw: 0.35.0
@@ -40,6 +41,7 @@ dependencies:
   chalk: 4.1.0
   enzyme: 3.11.0
   history: 5.0.1
+  icons: 1.0.0
   jest-styled-components: 7.0.5
   js-cookie: 3.0.1
   msw: 0.35.0
@@ -6629,6 +6631,11 @@ packages:
       slash: 3.0.0
       which-pm-runs: 1.0.0
     dev: true
+
+  /icons/1.0.0:
+    resolution: {integrity: sha512-7POum3AHKovjEEXg4ITL2opTzGjnN2UnUIhv5LsUX+SjKBsFMjRyANShrCubt0KQdNdcX2wAym+JXOt6LceuYA==}
+    deprecated: Package no longer supported. Contact support@npmjs.com for more info.
+    dev: false
 
   /iconv-lite/0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}

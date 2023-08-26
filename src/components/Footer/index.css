@@ -1,0 +1,16 @@
+.footer-icons {
+  display: flex;
+  flex-direction: row;
+  color: #3d3c3c;
+  width: 188px;
+  font-size: 18px;
+  font-weight: 400px;
+  height: 21px;
+}
+
+.contact-us {
+  color: #3d3c3c;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: HK Grotesk;
+}

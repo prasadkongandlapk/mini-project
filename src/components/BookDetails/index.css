@@ -1,0 +1,133 @@
+@media (min-width: 361px) {
+  .book-bg {
+    height: 1100px;
+    width: 1440px;
+    background-color: #fff;
+    background-size: cover;
+  }
+
+  .author-book-title {
+    font-weight: 600;
+    margin-top: 32px;
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+
+  .book-description {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+  .book-bg-without-header {
+    background-color: #f5f7fa;
+    background-size: cover;
+    padding-top: 64px;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 96px;
+  }
+  .book-card {
+    width: 1140px;
+    height: 726px;
+    padding: 64px;
+    background-color: #fff;
+  }
+  .book-failure-view {
+    height: 220px;
+    width: 430px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .book-page-failure-img {
+    margin-top: 42px;
+    height: 220px;
+    width: 350px;
+  }
+  .book-failure-text {
+    width: 313px;
+    text-align: center;
+    height: 24px;
+    color: #475569;
+  }
+
+  .book-try-again-btn {
+    background-color: #0284c7;
+    border-radius: 4px;
+    font-weight: 12px;
+    border: 0px none;
+    width: 75px;
+    color: #f8fafc;
+    height: 32px;
+    font-size: 14px;
+    margin-top: 16px;
+  }
+  .loader-book {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .image-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .book-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 24px;
+    height: 155px;
+    width: 350px;
+  }
+  .book-details {
+    margin-bottom: 50px;
+  }
+  .book-image {
+    width: 133px;
+    height: 155px;
+    margin-right: 20px;
+    border-radius: 8px;
+  }
+  .book-title {
+    font-weight: 600;
+    font-size: 16px;
+    color: #334155;
+  }
+  .book-author {
+    font-weight: 500;
+    font-size: 14px;
+    height: 16px;
+    color: #475569;
+  }
+
+  .star-icon {
+    color: #fbbf24;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .rating-bg {
+    font-size: 13px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 16px;
+  }
+  .status {
+    font-size: 12px;
+    font-weight: 400;
+    color: #475569;
+  }
+  .read-span {
+    font-size: 12px;
+    font-weight: 500;
+    color: #0284c7;
+    margin-left: 10px;
+  }
+}

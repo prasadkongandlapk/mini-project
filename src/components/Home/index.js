@@ -7,6 +7,7 @@ import Slider from 'react-slick'
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Header from '../Header'
+import Footer from '../Footer'
 
 const status = {
   loading: 'LOADING',
@@ -87,7 +88,7 @@ class Home extends Component {
   onFailure = () => (
     <div className="home-page-failure-view-card">
       <img
-        className="home-page-failure-view"
+        className="home-page-failure-img"
         src="https://res.cloudinary.com/dh22wd8lt/image/upload/v1692938236/Group_7522_ebgftt.png"
         alt="failure view"
       />
@@ -122,7 +123,7 @@ class Home extends Component {
 
   onClickFindBooks = () => {
     const {history} = this.props
-    history.replace('/bookshelves')
+    history.replace('/books')
   }
 
   render() {
@@ -153,6 +154,7 @@ class Home extends Component {
             </li>
           </div>
           {this.renderApiResult()}
+          <Footer />
         </div>
       </div>
     )

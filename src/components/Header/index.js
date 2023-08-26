@@ -26,7 +26,7 @@ const Header = props => {
         <Link to="/">
           <p className="home-anchor-element">Home</p>
         </Link>
-        <Link to="bookshelves">
+        <Link to="books">
           <p className="bookshelves-anchor-element">BookShelves</p>
         </Link>
 
