@@ -55,14 +55,14 @@ class Login extends Component {
         <img
           className="login-page-image"
           src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1692863030/Rectangle_1467_hv1tr8.jpg"
-          alt="login"
+          alt="website login"
         />
         <div className="login-credentials-card">
           <div className="logo">
             <img
               className="logo-img"
               src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1692865041/Group_7730_p3vctx.svg"
-              alt="website logo"
+              alt="login website logo"
             />
             <p className="logo-text">ook Hub</p>
           </div>

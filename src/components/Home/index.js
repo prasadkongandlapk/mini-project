@@ -1,4 +1,7 @@
 import './index.css'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
 import Loader from 'react-loader-spinner'
 import Slider from 'react-slick'
 import {Component} from 'react'
@@ -21,12 +24,14 @@ class Home extends Component {
   getTopRatedBooks = async () => {
     const topRatedBooksUrl = 'https://apis.ccbp.in/book-hub/top-rated-books'
     const token = Cookies.get('jwt_token')
+
     const options = {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
       },
     }
+
     const response = await fetch(topRatedBooksUrl, options)
     const data = await response.json()
     if (response.ok === true) {
@@ -47,6 +52,10 @@ class Home extends Component {
     }
   }
 
+  onClickTryAgain = () => {
+    this.getTopRatedBooks()
+  }
+
   onLoading = () => (
     <div className="loader-home" data-testid="loader">
       <Loader type="ThreeDots" />
@@ -61,32 +70,35 @@ class Home extends Component {
       slidesToScroll: 1,
     }
     return (
-      <div className="success-api">
+      <div className="top-rated-books-ul-order">
         <Slider {...settings}>
-          <ul className="top-rated-books-ul-order">
-            {topRatedBooks.map(each => (
-              <li className="top-rated-books-list" key={each.id}>
-                <img
-                  className="cover-pic"
-                  src={each.coverPic}
-                  alt={each.title}
-                />
-                <p className="home-top-rated-book-title">{each.title}</p>
-                <p>{each.authorName}</p>
-              </li>
-            ))}
-          </ul>
+          {topRatedBooks.map(each => (
+            <div className="top-rated-books-list" key={each.id}>
+              <img className="cover-pic" src={each.coverPic} alt={each.title} />
+              <h1 className="home-top-rated-book-title">{each.title}</h1>
+              <p>{each.authorName}</p>
+            </div>
+          ))}
         </Slider>
       </div>
     )
   }
 
   onFailure = () => (
-    <div>
+    <div className="home-page-failure-view-card">
+      <img
+        className="home-page-failure-view"
+        src="https://res.cloudinary.com/dh22wd8lt/image/upload/v1692938236/Group_7522_ebgftt.png"
+        alt="failure view"
+      />
       <p className="home-failure-text">
         Something went wrong, Please try again.
       </p>
-      <button type="button" className="home-try-abain-btn">
+      <button
+        onClick={this.onClickTryAgain}
+        type="button"
+        className="home-try-again-btn"
+      >
         Try again
       </button>
     </div>
@@ -108,12 +120,17 @@ class Home extends Component {
     }
   }
 
+  onClickFindBooks = () => {
+    const {history} = this.props
+    history.replace('/bookshelves')
+  }
+
   render() {
     return (
       <div className="home-background">
         <Header />
         <div className="home-without-header-background">
-          <h1 className="home-main-heading">Find Your Next Favourite Books</h1>
+          <h1 className="home-main-heading">Find Your Next Favorite Books?</h1>
           <p className="home-description">
             You are in the right place.Tell us what titles or genres you have
             enjoyed in the past, and we will give you surprisingly insightful
@@ -122,10 +139,18 @@ class Home extends Component {
         </div>
         <div className="top-rated-books-background">
           <div className="top-rated-books-text-and-find-books-btn-card">
-            <p className="top-rated-books-text">Top Rated Books</p>
-            <button className="find-books-btn" type="button">
-              Find Books
-            </button>
+            <li>
+              <h1 className="top-rated-books-text">Top Rated Books</h1>
+            </li>
+            <li>
+              <button
+                onClick={this.onClickFindBooks}
+                className="find-books-btn"
+                type="button"
+              >
+                Find Books
+              </button>
+            </li>
           </div>
           {this.renderApiResult()}
         </div>

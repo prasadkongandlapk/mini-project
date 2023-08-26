@@ -1,6 +1,6 @@
 import './index.css'
 import Cookies from 'js-cookie'
-import {withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 
 const Header = props => {
   const onLogout = () => {
@@ -11,17 +11,25 @@ const Header = props => {
 
   return (
     <div className="header-background">
-      <div className="header-logo-card">
-        <img
-          className="header-logo"
-          src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1692865041/Group_7730_p3vctx.svg"
-          alt="website logo"
-        />
-        <p className="header-logo-text">ook Hub</p>
-      </div>
+      <Link to="/">
+        <div className="header-logo-card">
+          <img
+            className="header-logo"
+            src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1692865041/Group_7730_p3vctx.svg"
+            alt="website logo"
+          />
+          <p className="header-logo-text">ook Hub</p>
+        </div>
+      </Link>
+
       <div className="anchor-elements-card">
-        <p className="home-anchor-element">Home</p>
-        <p className="bookshelves-anchor-element">BookShelves</p>
+        <Link to="/">
+          <p className="home-anchor-element">Home</p>
+        </Link>
+        <Link to="bookshelves">
+          <p className="bookshelves-anchor-element">BookShelves</p>
+        </Link>
+
         <button className="logout-button" type="button" onClick={onLogout}>
           Logout
         </button>
