@@ -17,6 +17,9 @@
     border: 1px solid #e4e7eb;
   }
 
+  .link {
+    text-decoration: none;
+  }
   .header-logo {
     height: 41px;
     width: 47px;

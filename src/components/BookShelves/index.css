@@ -1,12 +1,21 @@
 @media (min-width: 361px) {
   .bookshelves-background {
-    background-color: #f5f7fa;
     background-size: cover;
+    background-color: #f5f7fa;
     width: 1440px;
-    height: 3000px;
     font-family: 'roboto';
   }
+
   .bookshelves-card {
+    background-color: #f5f7fa;
+
+    padding-left: 150px;
+    padding-top: 48px;
+    display: flex;
+    flex-direction: row;
+  }
+  .bookshelves-card-while-loading {
+    background-color: #fff;
     padding-left: 150px;
     padding-top: 48px;
     display: flex;
@@ -18,7 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: ;
+    margin-top: 200px;
     justify-content: center;
   }
   .books-page-failure-img {
@@ -56,7 +65,6 @@
   .bookshelves-category-buttons-card {
     background-color: #fff;
     width: 256px;
-    height: 2730px;
     padding-left: 32px;
     padding-top: 32px;
     padding-right: 88px;
@@ -102,7 +110,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 250px;
   }
   .title-and-search-bar {
     display: flex;
@@ -153,6 +161,7 @@
   .all-books-api-result-card {
     margin-top: 31px;
     margin-right: 210px;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -165,6 +174,9 @@
     margin-bottom: 24px;
     height: 155px;
     width: 350px;
+  }
+  .link {
+    text-decoration: none;
   }
   .each-book-details {
     margin-bottom: 50px;

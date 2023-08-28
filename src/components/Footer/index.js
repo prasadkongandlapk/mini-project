@@ -1,17 +1,15 @@
 import './index.css'
-import {BsGoogle, BsInstagram, BsTwitter} from 'react-icons/bs'
-import {AiFillYoutube} from 'react-icons/ai'
-import {BiLogoGoogle} from 'react-icons/bi'
+import {FaGoogle, FaInstagram, FaTwitter, FaYoutube} from 'react-icons/fa'
 
 const Footer = () => (
-  <div>
+  <div className="footer-icons-card">
     <div className="footer-icons">
-      <BiLogoGoogle />
-      <BsTwitter />
-      <BsInstagram />
-      <AiFillYoutube />
+      <FaGoogle className="footer-icon" />
+      <FaInstagram className="footer-icon" />
+      <FaTwitter className="footer-icon" />
+      <FaYoutube className="footer-icon" />
     </div>
-    <p>Contact Us</p>
+    <p className="contact-us">Contact us</p>
   </div>
 )
 

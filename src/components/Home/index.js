@@ -16,7 +16,11 @@ const status = {
 }
 
 class Home extends Component {
-  state = {topRatedBooks: [], topRatedBooksApiStatus: status.loading}
+  state = {
+    topRatedBooks: [],
+    showFooter: true,
+    topRatedBooksApiStatus: status.loading,
+  }
 
   componentDidMount() {
     this.getTopRatedBooks()
@@ -49,6 +53,7 @@ class Home extends Component {
     } else {
       this.setState({
         topRatedBooksApiStatus: status.failure,
+        showFooter: false,
       })
     }
   }
@@ -58,7 +63,7 @@ class Home extends Component {
   }
 
   onLoading = () => (
-    <div className="loader-home" data-testid="loader">
+    <div className="loader-home" testid="loader">
       <Loader type="ThreeDots" />
     </div>
   )
@@ -67,21 +72,21 @@ class Home extends Component {
     const {topRatedBooks} = this.state
     const settings = {
       dots: false,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 1,
     }
     return (
-      <div className="top-rated-books-ul-order">
+      <ul className="top-rated-books-ul-order">
         <Slider {...settings}>
           {topRatedBooks.map(each => (
-            <div className="top-rated-books-list" key={each.id}>
+            <li className="top-rated-books-list" key={each.id}>
               <img className="cover-pic" src={each.coverPic} alt={each.title} />
               <h1 className="home-top-rated-book-title">{each.title}</h1>
               <p>{each.authorName}</p>
-            </div>
+            </li>
           ))}
         </Slider>
-      </div>
+      </ul>
     )
   }
 
@@ -127,6 +132,7 @@ class Home extends Component {
   }
 
   render() {
+    const {showFooter} = this.state
     return (
       <div className="home-background">
         <Header />
@@ -154,8 +160,14 @@ class Home extends Component {
             </li>
           </div>
           {this.renderApiResult()}
-          <Footer />
         </div>
+        {showFooter ? (
+          <div className="footer">
+            <Footer />
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     )
   }

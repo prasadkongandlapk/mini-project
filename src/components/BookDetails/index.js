@@ -4,6 +4,7 @@ import {Component} from 'react'
 import Loader from 'react-loader-spinner'
 import {AiTwotoneStar} from 'react-icons/ai'
 import Header from '../Header'
+import Footer from '../Footer'
 
 const status = {
   loading: 'LOADING',
@@ -12,9 +13,13 @@ const status = {
 }
 
 class BookDetails extends Component {
-  state = {apiStatus: status.loading}
+  state = {apiStatus: status.loading, showFooter: true}
 
   componentDidMount() {
+    this.getBook()
+  }
+
+  onClickTryAgain = () => {
     this.getBook()
   }
 
@@ -48,7 +53,7 @@ class BookDetails extends Component {
       }
       this.setState({data: formattedData, apiStatus: status.success})
     } else {
-      this.setState({apiStatus: status.failure})
+      this.setState({apiStatus: status.failure, showFooter: false})
     }
   }
 
@@ -122,12 +127,20 @@ class BookDetails extends Component {
   }
 
   render() {
+    const {showFooter} = this.state
     return (
       <div className="book-bg">
         <Header />
         <div className="book-bg-without-header">
           <div className="book-card">{this.renderResult()}</div>
         </div>
+        {showFooter ? (
+          <div className="footer">
+            <Footer />
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     )
   }

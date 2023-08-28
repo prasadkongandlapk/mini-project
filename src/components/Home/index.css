@@ -3,7 +3,6 @@
     background-color: #f5f7fa;
     width: 1440px;
     font-family: 'roboto';
-    height: 1024px;
     background-size: cover;
   }
   .home-without-header-background {
@@ -132,5 +131,14 @@
     margin-top: 42px;
     height: 164px;
     width: 350px;
+  }
+  .footer {
+    margin-top: 100px;
+    margin-bottom: 16px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
   }
 }

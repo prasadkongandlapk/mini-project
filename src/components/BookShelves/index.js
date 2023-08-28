@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {AiOutlineSearch, AiTwotoneStar} from 'react-icons/ai'
-
+import Footer from '../Footer'
 import Header from '../Header'
 
 const status = {
@@ -63,6 +63,8 @@ class BookShelves extends Component {
     apiStatus: status.loading,
     bookshelfName: 'ALL',
     booksData: [],
+    showFooter: true,
+
     searchText: '',
   }
 
@@ -100,7 +102,7 @@ class BookShelves extends Component {
       }))
       this.setState({booksData: formattedData, apiStatus: status.success})
     } else {
-      this.setState({apiStatus: status.failure})
+      this.setState({apiStatus: status.failure, showFooter: false})
     }
   }
 
@@ -115,7 +117,7 @@ class BookShelves extends Component {
     return (
       <ul className="all-books-api-result-card">
         {booksData.map(eachBook => (
-          <Link to="/books/:bookid">
+          <Link to={`/books/${eachBook.id}`} className="link">
             <li className="each-book-card">
               <img
                 className="each-book-image"
@@ -200,11 +202,16 @@ class BookShelves extends Component {
   }
 
   render() {
-    const {booksData, searchText, isActive} = this.state
+    const {apiStatus, showFooter, searchText, isActive} = this.state
+    const backgroundWhileLoading =
+      apiStatus === status.loading
+        ? 'bookshelves-card-while-loading'
+        : 'bookshelves-card'
+
     return (
       <div className="bookshelves-background">
         <Header />
-        <div className="bookshelves-card">
+        <div className={backgroundWhileLoading}>
           <ul className="bookshelves-category-buttons-card">
             <p className="bookshelves-buttons-heading">BookShelves</p>
             {bookshelvesList.map(eachBookBtn => (
@@ -223,7 +230,7 @@ class BookShelves extends Component {
               <div className="search-bg">
                 <input
                   className="search-bar"
-                  type="text"
+                  type="search"
                   value={searchText}
                   placeholder="Search"
                   onChange={this.onChangeInput}
@@ -240,6 +247,13 @@ class BookShelves extends Component {
             <div className="api-render-card">{this.renderResult()}</div>
           </div>
         </div>
+        {showFooter && apiStatus !== 'LOADING' ? (
+          <div className="footer">
+            <Footer />
+          </div>
+        ) : (
+          ''
+        )}
       </div>
     )
   }
