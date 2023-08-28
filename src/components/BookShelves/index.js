@@ -64,7 +64,7 @@ class BookShelves extends Component {
     bookshelfName: 'ALL',
     booksData: [],
     showFooter: true,
-
+    CheckSearchResult: false,
     searchText: '',
   }
 
@@ -152,9 +152,25 @@ class BookShelves extends Component {
   }
 
   onClickSearchBtn = () => {
+    const {data, searchText} = this.state
     this.setState(prevState => ({
       isSearchBtnClicked: !prevState.isSearchBtnClicked,
+      CheckSearchResult: data.filter(eachBook =>
+        eachBook.title.toLowerCase().includes(searchText.toLowerCase()),
+      ),
     }))
+  }
+
+  notFound = () => {
+    const {searchText} = this.state
+    return (
+      <div className="bookshelves-failure-view">
+        <img className="books-page-failure-img" src="" alt="failure view" />
+        <p className="bookshelves-failure-text">
+          Your search for {searchText} did not find any matches.
+        </p>
+      </div>
+    )
   }
 
   failureView = () => (
@@ -186,7 +202,6 @@ class BookShelves extends Component {
         return this.successView()
       case status.failure:
         return this.failureView()
-
       default:
         return null
     }
@@ -202,7 +217,13 @@ class BookShelves extends Component {
   }
 
   render() {
-    const {apiStatus, showFooter, searchText, isActive} = this.state
+    const {
+      apiStatus,
+      CheckSearchResult,
+      showFooter,
+      searchText,
+      isActive,
+    } = this.state
     const backgroundWhileLoading =
       apiStatus === status.loading
         ? 'bookshelves-card-while-loading'
@@ -213,7 +234,7 @@ class BookShelves extends Component {
         <Header />
         <div className={backgroundWhileLoading}>
           <ul className="bookshelves-category-buttons-card">
-            <p className="bookshelves-buttons-heading">BookShelves</p>
+            <h1 className="bookshelves-buttons-heading">Bookshelves</h1>
             {bookshelvesList.map(eachBookBtn => (
               <BookshelvesBtn
                 key={eachBookBtn.id}
@@ -244,7 +265,9 @@ class BookShelves extends Component {
                 </button>
               </div>
             </div>
-            <div className="api-render-card">{this.renderResult()}</div>
+            <div className="api-render-card">
+              {CheckSearchResult ? this.notFound : this.renderResult()}
+            </div>
           </div>
         </div>
         {showFooter && apiStatus !== 'LOADING' ? (

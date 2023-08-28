@@ -4,6 +4,7 @@ import Login from './components/Login'
 import ProtectedRoute from './components/ProtectedRoute'
 import BookShelves from './components/BookShelves'
 import BookDetails from './components/BookDetails'
+import NotFound from './components/NotFound'
 
 import Home from './components/Home'
 
@@ -13,6 +14,7 @@ const App = () => (
     <ProtectedRoute exact path="/" component={Home} />
     <ProtectedRoute exact path="/books" component={BookShelves} />
     <ProtectedRoute exact path="/books/:bookid" component={BookDetails} />
+    <Route component={NotFound} />
   </Switch>
 )
 

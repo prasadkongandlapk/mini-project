@@ -103,4 +103,121 @@
     flex-direction: row;
     margin-bottom: 28px;
   }
+  .menu-bar-btn {
+    display: none;
+  }
+  li {
+    list-style: none;
+  }
+}
+
+@media (max-width: 361px) {
+  .header-background {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+    background-size: cover;
+    font-family: 'roboto';
+
+    width: 360px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    background-color: #fff;
+    border: 1px solid #e4e7eb;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+  .header-logo {
+    height: 41px;
+    width: 47px;
+    margin-top: 24px;
+  }
+
+  .anchor-elements-card {
+    display: none;
+  }
+
+  .home-anchor-element {
+    width: 46px;
+    height: 24px;
+    color: #64748b;
+    background-color: transparent;
+    border: 0px none;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 24px;
+    text-decoration: none;
+    font-style: normal;
+  }
+
+  .home-anchor-element-tab {
+    width: 46px;
+    height: 24px;
+    color: #0284c7;
+    background-color: transparent;
+    border: 0px none;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 24px;
+    text-decoration: none;
+    font-style: normal;
+  }
+
+  .bookshelves-anchor-element {
+    height: 24px;
+    color: #64748b;
+    background-color: transparent;
+    border: 0px none;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 24px;
+    text-decoration: none;
+    font-style: normal;
+  }
+  .bookshelves-anchor-element-tab {
+    height: 24px;
+    color: #0284c7;
+    background-color: transparent;
+    border: 0px none;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 24px;
+    text-decoration: none;
+    font-style: normal;
+  }
+
+  .logout-button {
+    background-color: #0284c7;
+    border-radius: 5px;
+    border: 0px none;
+    width: 73px;
+    color: #f8fafc;
+    height: 32px;
+  }
+
+  .header-logo-text {
+    height: 17px;
+    width: 87px;
+    margin-top: 44px;
+    color: #0284c7;
+    font-weight: 600px;
+    font-family: Almendra SC;
+  }
+  .header-logo-card {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 28px;
+  }
+  li {
+    list-style: none;
+  }
+
+  .menu-bar {
+  }
 }

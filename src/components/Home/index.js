@@ -1,7 +1,7 @@
 import './index.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-
+import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import Slider from 'react-slick'
 import {Component} from 'react'
@@ -20,6 +20,7 @@ class Home extends Component {
     topRatedBooks: [],
     showFooter: true,
     topRatedBooksApiStatus: status.loading,
+    isMenubarClicked: false,
   }
 
   componentDidMount() {
@@ -58,6 +59,10 @@ class Home extends Component {
     }
   }
 
+  onMenubar = () => {
+    this.setState({isMenubarClicked: true})
+  }
+
   onClickTryAgain = () => {
     this.getTopRatedBooks()
   }
@@ -78,11 +83,15 @@ class Home extends Component {
     return (
       <ul className="top-rated-books-ul-order">
         <Slider {...settings}>
-          {topRatedBooks.map(each => (
-            <li className="top-rated-books-list" key={each.id}>
-              <img className="cover-pic" src={each.coverPic} alt={each.title} />
-              <h1 className="home-top-rated-book-title">{each.title}</h1>
-              <p>{each.authorName}</p>
+          {topRatedBooks.map(eachBook => (
+            <li className="top-rated-books-list" key={eachBook.id}>
+              <img
+                className="cover-pic"
+                src={eachBook.coverPic}
+                alt={eachBook.title}
+              />
+              <h1 className="home-top-rated-book-title">{eachBook.title}</h1>
+              <p>{eachBook.authorName}</p>
             </li>
           ))}
         </Slider>
@@ -110,6 +119,12 @@ class Home extends Component {
     </div>
   )
 
+  onLogout = () => {
+    Cookies.remove('jwt_token')
+    const {history} = this.props
+    history.replace('/login')
+  }
+
   renderApiResult = () => {
     const {topRatedBooksApiStatus} = this.state
 
@@ -132,11 +147,36 @@ class Home extends Component {
   }
 
   render() {
-    const {showFooter} = this.state
+    const {showFooter, isMenubarClicked} = this.state
     return (
       <div className="home-background">
-        <Header />
+        <Header onMenubar={this.onMenubar} />
         <div className="home-without-header-background">
+          {isMenubarClicked ? (
+            <div className="menu-items">
+              <Link to="/" className="link">
+                <li>
+                  <h1 className="home-anchor-element">Home</h1>
+                </li>
+              </Link>
+              <Link to="/books" className="link">
+                <li>
+                  <h1 className="bookshelves-anchor-element">BookShelves</h1>
+                </li>
+              </Link>
+              <li>
+                <button
+                  className="logout-button"
+                  type="button"
+                  onClick={this.onLogout}
+                >
+                  Logout
+                </button>
+              </li>
+            </div>
+          ) : (
+            ''
+          )}
           <h1 className="home-main-heading">Find Your Next Favorite Books?</h1>
           <p className="home-description">
             You are in the right place.Tell us what titles or genres you have

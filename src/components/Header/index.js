@@ -3,6 +3,11 @@ import Cookies from 'js-cookie'
 import {Link, withRouter} from 'react-router-dom'
 
 const Header = props => {
+  const {onMenubar} = props
+
+  const onClickMenubarBtn = () => {
+    onMenubar()
+  }
   const onLogout = () => {
     Cookies.remove('jwt_token')
     const {history} = props
@@ -40,6 +45,19 @@ const Header = props => {
             </button>
           </li>
         </div>
+        <li>
+          <button
+            className="menu-bar-btn"
+            type="button"
+            onClick={onClickMenubarBtn}
+          >
+            <img
+              className="menu-bar"
+              src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1693204998/menu_k3dolt.svg"
+              alt="menu"
+            />
+          </button>
+        </li>
       </ul>
     </nav>
   )
