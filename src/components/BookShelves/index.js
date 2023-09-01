@@ -64,7 +64,6 @@ class BookShelves extends Component {
     bookshelfName: 'ALL',
     booksData: [],
     showFooter: true,
-    CheckSearchResult: false,
     searchText: '',
   }
 
@@ -145,27 +144,32 @@ class BookShelves extends Component {
   }
 
   onChangeInput = event => {
-    const {isSearchBtnClicked} = this.state
-    if (isSearchBtnClicked === true) {
-      this.setState({searchText: event.target.value})
-    }
+    this.setState({searchText: event.target.value})
   }
 
   onClickSearchBtn = () => {
-    const {data, searchText} = this.state
-    this.setState(prevState => ({
-      isSearchBtnClicked: !prevState.isSearchBtnClicked,
-      CheckSearchResult: data.filter(eachBook =>
-        eachBook.title.toLowerCase().includes(searchText.toLowerCase()),
-      ),
-    }))
+    const {booksData, searchText} = this.state
+    this.setState(
+      prevState => ({
+        isSearchBtnClicked: !prevState.isSearchBtnClicked,
+
+        booksData: booksData.filter(eachBook =>
+          eachBook.title.toLowerCase().includes(searchText.toLowerCase()),
+        ),
+      }),
+      this.getBooks,
+    )
   }
 
   notFound = () => {
     const {searchText} = this.state
     return (
       <div className="bookshelves-failure-view">
-        <img className="books-page-failure-img" src="" alt="failure view" />
+        <img
+          className="books-page-failure-img"
+          src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1693561561/Asset_1_1_wznbnf.png"
+          alt="not found"
+        />
         <p className="bookshelves-failure-text">
           Your search for {searchText} did not find any matches.
         </p>
@@ -217,13 +221,7 @@ class BookShelves extends Component {
   }
 
   render() {
-    const {
-      apiStatus,
-      CheckSearchResult,
-      showFooter,
-      searchText,
-      isActive,
-    } = this.state
+    const {apiStatus, showFooter, booksData, searchText, isActive} = this.state
     const backgroundWhileLoading =
       apiStatus === status.loading
         ? 'bookshelves-card-while-loading'
@@ -266,7 +264,7 @@ class BookShelves extends Component {
               </div>
             </div>
             <div className="api-render-card">
-              {CheckSearchResult ? this.notFound : this.renderResult()}
+              {booksData.length === 0 ? this.notFound() : this.renderResult()}
             </div>
           </div>
         </div>
