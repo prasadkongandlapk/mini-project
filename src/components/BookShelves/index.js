@@ -44,7 +44,7 @@ const BookshelvesBtn = props => {
   }
   const activeBtn = isActiveBtn === id ? 'active-btn' : 'category-btn'
   return (
-    <li>
+    <div>
       <button
         className={activeBtn}
         type="button"
@@ -52,7 +52,7 @@ const BookshelvesBtn = props => {
       >
         {label}
       </button>
-    </li>
+    </div>
   )
 }
 
@@ -127,9 +127,9 @@ class BookShelves extends Component {
                 <h5 className="each-book-title">{eachBook.title}</h5>
                 <p className="each-book-author">{eachBook.authorName}</p>
                 <div className="rating-bg">
-                  <p>Avg Rating </p>
+                  <p className="avg-rating">Avg Rating </p>
                   <AiTwotoneStar className="star-icon" />
-                  <p>{eachBook.rating}</p>
+                  <p className="rating">{eachBook.rating}</p>
                 </div>
                 <p className="status">
                   Status:
@@ -152,7 +152,6 @@ class BookShelves extends Component {
     this.setState(
       prevState => ({
         isSearchBtnClicked: !prevState.isSearchBtnClicked,
-
         booksData: booksData.filter(eachBook =>
           eachBook.title.toLowerCase().includes(searchText.toLowerCase()),
         ),
@@ -233,6 +232,7 @@ class BookShelves extends Component {
         <div className={backgroundWhileLoading}>
           <ul className="bookshelves-category-buttons-card">
             <h1 className="bookshelves-buttons-heading">Bookshelves</h1>
+
             {bookshelvesList.map(eachBookBtn => (
               <BookshelvesBtn
                 key={eachBookBtn.id}
@@ -263,8 +263,48 @@ class BookShelves extends Component {
                 </button>
               </div>
             </div>
+            {apiStatus !== status.loading ? (
+              <>
+                <div className="search-bg-small-devices">
+                  <input
+                    className="search-bar"
+                    type="search"
+                    value={searchText}
+                    placeholder="Search"
+                    onChange={this.onChangeInput}
+                  />
+                  <button
+                    type="button"
+                    onClick={this.onClickSearchBtn}
+                    className="search-btn"
+                  >
+                    <AiOutlineSearch className="search-icon" />
+                  </button>
+                </div>
+
+                <h1 className="bookshelves-buttons-heading-small-devices">
+                  Bookshelves
+                </h1>
+
+                <div className="bookshelves-category-buttons-card-small-devices">
+                  {bookshelvesList.map(eachBookBtn => (
+                    <BookshelvesBtn
+                      key={eachBookBtn.id}
+                      onClickCategories={this.onClickCategories}
+                      details={eachBookBtn}
+                      isActiveBtn={isActive}
+                    />
+                  ))}
+                </div>
+              </>
+            ) : (
+              ''
+            )}
             <div className="api-render-card">
-              {booksData.length === 0 ? this.notFound() : this.renderResult()}
+              {this.renderResult()}
+              {apiStatus !== status.loading && booksData.length === 0
+                ? this.notFound()
+                : ''}
             </div>
           </div>
         </div>

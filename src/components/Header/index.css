@@ -1,4 +1,4 @@
-@media (min-width: 361px) {
+@media screen and(min-width: 361px) {
   .header-background {
     display: flex;
     flex-direction: row;
@@ -106,12 +106,16 @@
   .menu-bar-btn {
     display: none;
   }
+  .popup-container {
+    display: none;
+  }
+
   li {
     list-style: none;
   }
 }
 
-@media (max-width: 361px) {
+@media screen and(max-width: 361px) {
   .header-background {
     display: flex;
     flex-direction: row;
@@ -123,25 +127,37 @@
     background-size: cover;
     font-family: 'roboto';
     width: 360px;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    height: 56px;
+    padding-left: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
     background-color: #fff;
     border: 1px solid #e4e7eb;
   }
-
   .link {
     text-decoration: none;
   }
-  .header-logo {
-    height: 41px;
-    width: 47px;
-    margin-top: 24px;
+  .header-logo-card {
+    display: flex;
+    flex-direction: row;
   }
-
+  .header-logo {
+    height: 24px;
+    width: 26px;
+    margin-top: 16px;
+  }
+  .header-logo-text {
+    height: 17px;
+    width: 65px;
+    margin-top: 22px;
+    margin-bottom: 17px;
+    color: #0284c7;
+    font-weight: 600px;
+    font-family: Almendra SC;
+  }
   .anchor-elements-card {
     display: none;
   }
-
   .home-anchor-element {
     width: 46px;
     height: 24px;
@@ -154,7 +170,10 @@
     text-decoration: none;
     font-style: normal;
   }
-
+  .anchor-elements-card-small-devices {
+    margin-top: 21px;
+    text-align: center;
+  }
   .home-anchor-element-tab {
     width: 46px;
     height: 24px;
@@ -176,6 +195,7 @@
     font-size: 16px;
     font-weight: 500;
     margin-right: 24px;
+    width: 94px;
     text-decoration: none;
     font-style: normal;
   }
@@ -198,25 +218,21 @@
     width: 73px;
     color: #f8fafc;
     height: 32px;
+    margin-right: 15px;
+    margin-left: 24px;
   }
 
-  .header-logo-text {
-    height: 17px;
-    width: 87px;
-    margin-top: 44px;
-    color: #0284c7;
-    font-weight: 600px;
-    font-family: Almendra SC;
-  }
-  .header-logo-card {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 28px;
-  }
   li {
     list-style: none;
   }
 
-  .menu-bar {
+  .menu-bar-btn {
+    width: 16px;
+    height: 16px;
+    border: 0px none;
+    background-color: transparent;
+  }
+  .popup-container {
+    display: flex;
   }
 }

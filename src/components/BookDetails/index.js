@@ -27,9 +27,9 @@ class BookDetails extends Component {
     const token = Cookies.get('jwt_token')
     const {match} = this.props
     const {params} = match
-    const {id} = params
+    const {bookid} = params
 
-    const bookUrl = `https://apis.ccbp.in/book-hub/books/${id}`
+    const bookUrl = `https://apis.ccbp.in/book-hub/books/${bookid}`
 
     const options = {
       method: 'GET',
@@ -58,7 +58,7 @@ class BookDetails extends Component {
   }
 
   loadingView = () => (
-    <div className="loader-book" data-testid="loader">
+    <div className="book-loader" testid="loader">
       <Loader type="ThreeDots" width={40} color="blue" />
     </div>
   )
@@ -66,7 +66,7 @@ class BookDetails extends Component {
   failureView = () => (
     <div className="book-failure-view">
       <img
-        className="books-page-failure-img "
+        className="books-page-failure-img"
         src="https://res.cloudinary.com/dh22wd8lt/image/upload/v1692938236/Group_7522_ebgftt.png"
         alt="failure view"
       />
@@ -86,27 +86,27 @@ class BookDetails extends Component {
   successView = () => {
     const {data} = this.state
     return (
-      <div>
-        <div className="image-card">
+      <div className="book-card">
+        <div className="book-image-card">
           <img className="book-image" src={data.coverPic} alt={data.title} />
           <div className="book-details">
             <h5 className="book-title">{data.title}</h5>
             <p className="book-author">{data.authorName}</p>
-            <div className="rating-bg">
-              <p>Avg Rating </p>
-              <AiTwotoneStar className="star-icon" />
-              <p>{data.rating}</p>
+            <div className="book-rating-bg">
+              <p className="book-avg-rating">Avg Rating </p>
+              <AiTwotoneStar className="book-star-icon" />
+              <p className="book-rating">{data.rating}</p>
             </div>
-            <p className="status">
+            <p className="book-status">
               Status:
-              <span className="read-span">{data.readStatus}</span>
+              <span className="book-read-span">{data.readStatus}</span>
             </p>
           </div>
         </div>
         <hr />
-        <h1 className="author-book-title">About Author</h1>
+        <h1 className="book-author-title">About Author</h1>
         <p className="book-description">{data.aboutAuthor}</p>
-        <h1 className="author-book-title">About Book</h1>
+        <h1 className="book-author-title">About Book</h1>
         <p className="book-description">{data.aboutBook}</p>
       </div>
     )
@@ -132,10 +132,10 @@ class BookDetails extends Component {
       <div className="book-bg">
         <Header />
         <div className="book-bg-without-header">
-          <div className="book-card">{this.renderResult()}</div>
+          <div>{this.renderResult()}</div>
         </div>
         {showFooter ? (
-          <div className="footer">
+          <div className="book-footer">
             <Footer />
           </div>
         ) : (

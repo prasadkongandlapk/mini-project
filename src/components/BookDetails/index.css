@@ -1,12 +1,11 @@
 @media screen and(min-width: 361px) {
   .book-bg {
-    height: 1100px;
     width: 1440px;
     background-color: #fff;
     background-size: cover;
   }
 
-  .author-book-title {
+  .book-author-title {
     font-weight: 600;
     margin-top: 32px;
     font-size: 24px;
@@ -24,14 +23,9 @@
     padding-top: 64px;
     padding-left: 150px;
     padding-right: 150px;
-    padding-bottom: 96px;
+    padding-bottom: 64px;
   }
-  .book-card {
-    width: 1140px;
-    height: 726px;
-    padding: 64px;
-    background-color: #fff;
-  }
+
   .book-failure-view {
     height: 220px;
     width: 430px;
@@ -64,77 +58,100 @@
     font-size: 14px;
     margin-top: 16px;
   }
-  .loader-book {
+  .book-loader {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 300px;
+    height: 1100px;
   }
-  .image-card {
+  .book-image-card {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
   }
 
   .book-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    background-color: #fff;
+    background-size: cover;
     margin-bottom: 24px;
-    height: 155px;
-    width: 350px;
+
+    width: 1140px;
+    padding: 64px;
+    margin-top: 64px;
   }
   .book-details {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .book-image {
-    width: 133px;
-    height: 155px;
-    margin-right: 20px;
+    width: 235px;
+    height: 274px;
+    margin-right: 48px;
     border-radius: 8px;
   }
   .book-title {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 32px;
     color: #334155;
+    height: 48px;
   }
   .book-author {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 24px;
     height: 16px;
     color: #475569;
+    margin-bottom: 16px;
   }
-
-  .star-icon {
+  .book-star-icon {
     color: #fbbf24;
     margin-left: 10px;
+    width: 32px;
+    height: 32px;
     margin-right: 10px;
   }
-  .rating-bg {
-    font-size: 13px;
-    font-weight: 400;
+  .book-rating {
+    color: #475569;
+    font-size: 24px;
+  }
+
+  .book-avg-rating {
+    color: #475569;
+    font-size: 24px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+
+  .book-rating-bg {
+    height: 32px;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 16px;
     display: flex;
+    margin-right: 16px;
     flex-direction: row;
     align-items: center;
     height: 16px;
   }
-  .status {
-    font-size: 12px;
-    font-weight: 400;
+  .book-status {
+    font-size: 24px;
+    font-weight: 500;
     color: #475569;
   }
-  .read-span {
-    font-size: 12px;
+  .book-read-span {
+    font-size: 24px;
     font-weight: 500;
     color: #0284c7;
     margin-left: 10px;
+  }
+  .book-footer {
+    margin-top: 96px;
   }
 }
 
 @media screen and(max-width: 361px) {
   .book-bg {
-    height: 1100px;
     width: 1440px;
     background-color: #fff;
     background-size: cover;
@@ -158,14 +175,9 @@
     padding-top: 64px;
     padding-left: 150px;
     padding-right: 150px;
-    padding-bottom: 96px;
+    padding-bottom: 64px;
   }
-  .book-card {
-    width: 1140px;
-    height: 726px;
-    padding: 64px;
-    background-color: #fff;
-  }
+
   .book-failure-view {
     height: 220px;
     width: 430px;
@@ -209,59 +221,83 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 32px;
   }
 
   .book-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    background-color: #fff;
+    background-size: cover;
     margin-bottom: 24px;
-    height: 155px;
-    width: 350px;
+
+    width: 1140px;
+    padding: 64px;
+    margin-top: 64px;
   }
   .book-details {
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
   .book-image {
-    width: 133px;
-    height: 155px;
-    margin-right: 20px;
+    width: 235px;
+    height: 274px;
+    margin-right: 48px;
     border-radius: 8px;
   }
   .book-title {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 32px;
     color: #334155;
+    height: 48px;
   }
   .book-author {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 24px;
     height: 16px;
     color: #475569;
+    margin-bottom: 16px;
   }
-
   .star-icon {
     color: #fbbf24;
     margin-left: 10px;
+    width: 32px;
+    height: 32px;
     margin-right: 10px;
   }
+  .rating {
+    color: #475569;
+    font-size: 24px;
+  }
+
+  .avg-rating {
+    color: #475569;
+    font-size: 24px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+
   .rating-bg {
-    font-size: 13px;
-    font-weight: 400;
+    height: 32px;
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 16px;
     display: flex;
+    margin-right: 16px;
     flex-direction: row;
     align-items: center;
     height: 16px;
   }
   .status {
-    font-size: 12px;
-    font-weight: 400;
+    font-size: 24px;
+    font-weight: 500;
     color: #475569;
   }
   .read-span {
-    font-size: 12px;
+    font-size: 24px;
     font-weight: 500;
     color: #0284c7;
     margin-left: 10px;
+  }
+  .footer {
+    margin-top: 96px;
   }
 }

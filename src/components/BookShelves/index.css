@@ -6,6 +6,10 @@
     font-family: 'roboto';
   }
 
+  .bookshelves-category-buttons-card-small-devices {
+    display: none;
+  }
+
   .bookshelves-card {
     background-color: #f5f7fa;
 
@@ -15,9 +19,9 @@
     flex-direction: row;
   }
   .bookshelves-card-while-loading {
-    background-color: #fff;
     padding-left: 150px;
     padding-top: 48px;
+    height: 1024px;
     display: flex;
     flex-direction: row;
   }
@@ -28,10 +32,10 @@
     flex-direction: column;
     align-items: center;
     margin-top: 200px;
+    margin-right: 282px;
     justify-content: center;
   }
   .books-page-failure-img {
-    margin-top: 42px;
     height: 220px;
     width: 350px;
   }
@@ -55,6 +59,10 @@
     margin-top: 16px;
   }
 
+  .search-bg-small-devices {
+    display: none;
+  }
+
   .bookshelves-failure-text {
     width: 313px;
     text-align: center;
@@ -68,6 +76,10 @@
     padding-left: 32px;
     padding-top: 32px;
     padding-right: 88px;
+  }
+
+  .loader-small-devices {
+    display: none;
   }
   .bookshelves-buttons-heading {
     width: 138px;
@@ -136,6 +148,9 @@
     margin-left: 507px;
   }
 
+  .bookshelves-buttons-heading-small-devices {
+    display: none;
+  }
   .search-btn {
     width: 52px;
     height: 34px;
@@ -229,47 +244,42 @@
   .bookshelves-background {
     background-size: cover;
     background-color: #f5f7fa;
-    width: 1440px;
+    width: 360px;
     font-family: 'roboto';
   }
-
   .bookshelves-card {
     background-color: #f5f7fa;
-
-    padding-left: 150px;
-    padding-top: 48px;
+    padding-left: 24px;
+    padding-right: 41px;
+    padding-top: 24px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   .bookshelves-card-while-loading {
-    background-color: #fff;
     padding-left: 150px;
+    height: 640px;
     padding-top: 48px;
     display: flex;
     flex-direction: row;
   }
   .bookshelves-failure-view {
-    height: 220px;
-    width: 430px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 200px;
+    margin-top: 64px;
+    margin-right: 52px;
     justify-content: center;
   }
   .books-page-failure-img {
-    margin-top: 42px;
-    height: 220px;
-    width: 350px;
+    height: 176px;
+    width: 257px;
   }
-
   .api-render-card {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
   }
-
   .bookshelves-try-again-btn {
     background-color: #0284c7;
     border-radius: 4px;
@@ -281,20 +291,24 @@
     font-size: 14px;
     margin-top: 16px;
   }
-
   .bookshelves-failure-text {
-    width: 313px;
+    width: 312px;
     text-align: center;
     height: 24px;
     color: #475569;
   }
-
   .bookshelves-category-buttons-card {
     background-color: #fff;
     width: 256px;
     padding-left: 32px;
     padding-top: 32px;
     padding-right: 88px;
+    display: none;
+  }
+  .bookshelves-category-buttons-card-small-devices {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
   .bookshelves-buttons-heading {
     width: 138px;
@@ -302,52 +316,52 @@
     color: #334155;
     font-weight: 600;
     font-size: 20px;
+    display: none;
   }
-  li {
+  .li {
     list-style: none;
     font-size: 16px;
     font-weight: 400;
     color: #475569;
   }
   .category-btn {
-    font-size: 16px;
-    font-weight: 400;
-    height: 24px;
-    color: #475569;
-    margin-top: 12px;
-    background-color: transparent;
-    border: 0px;
-    text-align: start;
-    width: 139px;
-  }
-  .active-btn {
-    width: 139px;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
-    text-align: start;
     height: 24px;
     color: #0284c7;
     margin-top: 12px;
     background-color: transparent;
-    border: 0px;
+    border: 1px solid #0284c7;
+    text-align: start;
+    border-radius: 25px;
+    margin-right: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
+  .active-btn {
+    margin-right: 12px;
+    padding-left: 8px;
+    padding-right: 8px;
 
+    text-align: start;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 600;
+    height: 24px;
+    color: #fff;
+    background-color: #0284c7;
+    margin-top: 12px;
+    border: 0px none;
+  }
   .loader-bookshelves {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    margin-top: 250px;
+    margin-top: 100px;
   }
-  .title-and-search-bar {
+  .search-bg-small-devices {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-left: 32px;
-    margin-right: 151px;
-    margin-top: 2px;
-  }
-  .search-bg {
     width: 264px;
     height: 36px;
     padding-top: 6px;
@@ -358,11 +372,13 @@
     border-radius: 5px;
     display: flex;
     flex-direction: row;
+    margin-top: 24px;
     align-items: center;
     justify-content: space-between;
-    margin-left: 507px;
   }
-
+  .search-bg {
+    display: none;
+  }
   .search-btn {
     width: 52px;
     height: 34px;
@@ -378,7 +394,16 @@
   .all-books-text {
     color: #334155;
     font-size: 18px;
+    display: none;
     font-weight: 600;
+  }
+  .bookshelves-buttons-heading-small-devices {
+    color: #334155;
+    font-size: 18px;
+    display: flex;
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-top: 16px;
   }
   .search-icon {
     height: 20px;
@@ -386,13 +411,8 @@
     margin-top: 3px;
   }
   .all-books-api-result-card {
-    margin-top: 31px;
-    margin-right: 210px;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    margin-top: 24px;
+    margin-left: 24px;
   }
   .each-book-card {
     display: flex;
@@ -405,13 +425,10 @@
   .link {
     text-decoration: none;
   }
-  .each-book-details {
-    margin-bottom: 50px;
-  }
   .each-book-image {
     width: 133px;
     height: 155px;
-    margin-right: 20px;
+    margin-right: 16px;
     border-radius: 8px;
   }
   .each-book-title {
@@ -425,23 +442,33 @@
     height: 16px;
     color: #475569;
   }
-
   .star-icon {
     color: #fbbf24;
+    height: 16px;
+    width: 16px;
     margin-left: 10px;
     margin-right: 10px;
   }
+  .avg-rating {
+    font-size: 12px;
+    font-weight: 500;
+  }
   .rating-bg {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 400;
     display: flex;
     flex-direction: row;
     align-items: center;
+    color: #475569;
     height: 16px;
+  }
+  .rating {
+    font-size: 12px;
+    font-weight: 500;
   }
   .status {
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     color: #475569;
   }
   .read-span {

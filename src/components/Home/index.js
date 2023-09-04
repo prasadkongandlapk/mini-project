@@ -69,7 +69,7 @@ class Home extends Component {
 
   onLoading = () => (
     <div className="loader-home" testid="loader">
-      <Loader type="ThreeDots" />
+      <Loader type="ThreeDots" width={30} color="#0284c7" />
     </div>
   )
 
@@ -77,7 +77,7 @@ class Home extends Component {
     const {topRatedBooks} = this.state
     const settings = {
       dots: false,
-      slidesToShow: 4,
+      slidesToShow: 2,
       slidesToScroll: 1,
     }
     return (
@@ -91,7 +91,9 @@ class Home extends Component {
                 alt={eachBook.title}
               />
               <h1 className="home-top-rated-book-title">{eachBook.title}</h1>
-              <p>{eachBook.authorName}</p>
+              <p className="home-top-rated-book-author">
+                {eachBook.authorName}
+              </p>
             </li>
           ))}
         </Slider>
@@ -151,32 +153,33 @@ class Home extends Component {
     return (
       <div className="home-background">
         <Header onMenubar={this.onMenubar} />
-        <div className="home-without-header-background">
-          {isMenubarClicked ? (
-            <div className="menu-items">
-              <Link to="/" className="link">
-                <li>
-                  <h1 className="home-anchor-element">Home</h1>
-                </li>
-              </Link>
-              <Link to="/books" className="link">
-                <li>
-                  <h1 className="bookshelves-anchor-element">BookShelves</h1>
-                </li>
-              </Link>
+
+        {isMenubarClicked ? (
+          <div className="menu-items">
+            <Link to="/" className="link">
               <li>
-                <button
-                  className="logout-button"
-                  type="button"
-                  onClick={this.onLogout}
-                >
-                  Logout
-                </button>
+                <h1 className="home-anchor-element">Home</h1>
               </li>
-            </div>
-          ) : (
-            ''
-          )}
+            </Link>
+            <Link to="/books" className="link">
+              <li>
+                <h1 className="bookshelves-anchor-element">BookShelves</h1>
+              </li>
+            </Link>
+            <li>
+              <button
+                className="logout-button"
+                type="button"
+                onClick={this.onLogout}
+              >
+                Logout
+              </button>
+            </li>
+          </div>
+        ) : (
+          ''
+        )}
+        <div className="home-heading-description-bg">
           <h1 className="home-main-heading">Find Your Next Favorite Books?</h1>
           <p className="home-description">
             You are in the right place.Tell us what titles or genres you have
@@ -184,6 +187,13 @@ class Home extends Component {
             recommendations.
           </p>
         </div>
+        <button
+          onClick={this.onClickFindBooks}
+          className="find-books-btn-small-devices"
+          type="button"
+        >
+          Find Books
+        </button>
         <div className="top-rated-books-background">
           <div className="top-rated-books-text-and-find-books-btn-card">
             <li>
@@ -202,7 +212,7 @@ class Home extends Component {
           {this.renderApiResult()}
         </div>
         {showFooter ? (
-          <div className="footer">
+          <div className="home-footer">
             <Footer />
           </div>
         ) : (

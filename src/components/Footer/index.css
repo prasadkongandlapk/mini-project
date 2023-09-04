@@ -1,4 +1,4 @@
-@media (min-width: 361px) {
+@media screen and(min-width: 361px) {
   .footer-icons-card {
     display: flex;
     flex-direction: column;
@@ -26,11 +26,12 @@
   }
 }
 
-@media (max-width: 361px) {
+@media screen and(max-width: 361px) {
   .footer-icons-card {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 124px;
   }
 
   .footer-icons {
@@ -41,15 +42,13 @@
 
   .footer-icon {
     color: #3d3c3c;
-
     font-size: 18px;
     font-weight: 400;
-    margin-right: 24px;
+    margin-right: 18px;
   }
   .contact-us {
     color: #3d3c3c;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 600;
-    margin-bottom: 64px;
   }
 }
