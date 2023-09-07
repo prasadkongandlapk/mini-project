@@ -1,6 +1,7 @@
 import './index.css'
 import Cookies from 'js-cookie'
 import {Component} from 'react'
+import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
 import {AiTwotoneStar} from 'react-icons/ai'
 import Header from '../Header'
@@ -13,10 +14,14 @@ const status = {
 }
 
 class BookDetails extends Component {
-  state = {apiStatus: status.loading, showFooter: true}
+  state = {apiStatus: status.loading, isMenubarClicked: false, showFooter: true}
 
   componentDidMount() {
     this.getBook()
+  }
+
+  onClickDeleteLinkBtn = () => {
+    this.setState({isMenubarClicked: false})
   }
 
   onClickTryAgain = () => {
@@ -31,14 +36,7 @@ class BookDetails extends Component {
 
     const bookUrl = `https://apis.ccbp.in/book-hub/books/${bookid}`
 
-    const options = {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    }
-
-    const response = await fetch(bookUrl, options)
+    const response = await fetch(bookUrl)
     const data = await response.json()
     if (response.ok === true) {
       const formattedData = {
@@ -126,21 +124,61 @@ class BookDetails extends Component {
     }
   }
 
+  onMenubar = () => {
+    this.setState({isMenubarClicked: true})
+  }
+
+  linksForSmall = () => (
+    <div className="anchor-elements-card-small-devices">
+      <Link to="/" className="link">
+        <li>
+          <h1 className="home-anchor-element">Home</h1>
+        </li>
+      </Link>
+      <Link to="/books" className="link">
+        <li>
+          <h1 className="bookshelves-anchor-element">BookShelves</h1>
+        </li>
+      </Link>
+      <li>
+        <button className="logout-button" type="button">
+          Logout
+        </button>
+      </li>
+
+      <li>
+        <button
+          onClick={this.onClickDeleteLinkBtn}
+          className="remove-links-button"
+          type="button"
+        >
+          <img
+            className="links-delete-img"
+            src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1694063512/Solid_cuhp7e.svg"
+            alt="delete"
+          />
+        </button>
+      </li>
+    </div>
+  )
+
   render() {
-    const {showFooter} = this.state
+    const {showFooter, isMenubarClicked} = this.state
     return (
       <div className="book-bg">
-        <Header />
+        <Header onMenubarClick={this.onMenubar} />
+
         <div className="book-bg-without-header">
+          {isMenubarClicked ? <div>{this.linksForSmall()}</div> : ''}
           <div>{this.renderResult()}</div>
+          {showFooter ? (
+            <div className="book-footer">
+              <Footer />
+            </div>
+          ) : (
+            ''
+          )}
         </div>
-        {showFooter ? (
-          <div className="book-footer">
-            <Footer />
-          </div>
-        ) : (
-          ''
-        )}
       </div>
     )
   }

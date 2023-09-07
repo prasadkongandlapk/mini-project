@@ -1,6 +1,7 @@
 import './index.css'
 import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
+
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {AiOutlineSearch, AiTwotoneStar} from 'react-icons/ai'
@@ -65,10 +66,15 @@ class BookShelves extends Component {
     booksData: [],
     showFooter: true,
     searchText: '',
+    isMenubarClicked: false,
   }
 
   componentDidMount() {
     this.getBooks()
+  }
+
+  onClickDeleteLinkBtn = () => {
+    this.setState({isMenubarClicked: false})
   }
 
   onClickTryAgain = () => {
@@ -160,6 +166,10 @@ class BookShelves extends Component {
     )
   }
 
+  onMenuBar = () => {
+    this.setState({isMenubarClicked: true})
+  }
+
   notFound = () => {
     const {searchText} = this.state
     return (
@@ -219,8 +229,49 @@ class BookShelves extends Component {
     })
   }
 
+  linksForSmall = () => (
+    <div className="anchor-elements-card-small-devices">
+      <Link to="/" className="link">
+        <li>
+          <h1 className="home-anchor-element">Home</h1>
+        </li>
+      </Link>
+      <Link to="/books" className="link">
+        <li>
+          <h1 className="bookshelves-anchor-element">BookShelves</h1>
+        </li>
+      </Link>
+      <li>
+        <button className="logout-button" type="button">
+          Logout
+        </button>
+      </li>
+
+      <li>
+        <button
+          onClick={this.onClickDeleteLinkBtn}
+          className="remove-links-button"
+          type="button"
+        >
+          <img
+            className="links-delete-img"
+            src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1694063512/Solid_cuhp7e.svg"
+            alt="delete"
+          />
+        </button>
+      </li>
+    </div>
+  )
+
   render() {
-    const {apiStatus, showFooter, booksData, searchText, isActive} = this.state
+    const {
+      apiStatus,
+      isMenubarClicked,
+      showFooter,
+      booksData,
+      searchText,
+      isActive,
+    } = this.state
     const backgroundWhileLoading =
       apiStatus === status.loading
         ? 'bookshelves-card-while-loading'
@@ -228,7 +279,8 @@ class BookShelves extends Component {
 
     return (
       <div className="bookshelves-background">
-        <Header />
+        <Header onMenubarClick={this.onMenubar} />
+
         <div className={backgroundWhileLoading}>
           <ul className="bookshelves-category-buttons-card">
             <h1 className="bookshelves-buttons-heading">Bookshelves</h1>
@@ -265,6 +317,8 @@ class BookShelves extends Component {
             </div>
             {apiStatus !== status.loading ? (
               <>
+                {isMenubarClicked ? <div>{this.linksForSmall()}</div> : ''}
+
                 <div className="search-bg-small-devices">
                   <input
                     className="search-bar"
@@ -309,7 +363,7 @@ class BookShelves extends Component {
           </div>
         </div>
         {showFooter && apiStatus !== 'LOADING' ? (
-          <div className="footer">
+          <div className="bookshelves-footer">
             <Footer />
           </div>
         ) : (

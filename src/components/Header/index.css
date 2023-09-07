@@ -1,4 +1,4 @@
-@media screen and(min-width: 361px) {
+@media (min-width: 361px) {
   .header-background {
     display: flex;
     flex-direction: row;
@@ -115,7 +115,7 @@
   }
 }
 
-@media screen and(max-width: 361px) {
+@media (max-width: 361px) {
   .header-background {
     display: flex;
     flex-direction: row;

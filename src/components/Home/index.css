@@ -10,7 +10,7 @@ li {
   right: 3% !important;
   z-index: 1;
 }
-@media screen and(min-width: 361px) {
+@media (min-width: 361px) {
   .home-background {
     background-color: #f5f7fa;
     width: 1440px;
@@ -152,7 +152,7 @@ li {
     justify-content: center;
   }
 }
-@media screen and(max-width: 361px) {
+@media (max-width: 361px) {
   .home-background {
     background-color: #f5f7fa;
     width: 360px;
@@ -161,6 +161,7 @@ li {
   }
   .home-without-header-background {
     padding-left: 24px;
+    padding-top: 24px;
   }
 
   .anchor-elements-card {
@@ -170,6 +171,8 @@ li {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    padding-left: 40px;
   }
   .home-anchor-element {
     width: 46px;
@@ -179,7 +182,7 @@ li {
     border: 0px none;
     font-size: 16px;
     font-weight: 500;
-    margin-right: 24px;
+    margin-right: 16px;
     text-decoration: none;
     font-style: normal;
   }
@@ -202,7 +205,8 @@ li {
     border: 0px none;
     font-size: 16px;
     font-weight: 500;
-    margin-right: 24px;
+    width: 96px;
+    margin-right: 20px;
     text-decoration: none;
     font-style: normal;
   }
@@ -224,6 +228,7 @@ li {
     width: 73px;
     color: #f8fafc;
     height: 32px;
+    margin-right: 20px;
   }
   .home-heading-description-bg {
     margin-bottom: 16px;
@@ -233,7 +238,6 @@ li {
     font-weight: 600;
     font-size: normal;
     color: #1e293b;
-    margin-top: 50px;
     margin-left: 24px;
   }
   .home-description {
@@ -249,10 +253,18 @@ li {
   .loader-home {
     color: #0284c7;
     display: flex;
-
     flex-direction: row;
     align-items: center;
     justify-content: center;
+  }
+  .remove-links-button {
+    background-color: transparent;
+    border: 0px none;
+  }
+  .links-delete-img {
+    height: 26px;
+    width: 26px;
+    margin-right: 24px;
   }
   .top-rated-books-background {
     padding-top: 16px;

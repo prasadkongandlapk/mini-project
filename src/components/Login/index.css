@@ -1,4 +1,4 @@
-@media screen and(min-width: 361px) {
+@media (min-width: 361px) {
   .login-background {
     background-color: #f8fafc;
     background-size: cover;
@@ -91,7 +91,7 @@
   }
 }
 
-@media screen and(max-width: 361px) {
+@media (max-width: 361px) {
   .login-background {
     background-color: #f8fafc;
     background-size: cover;

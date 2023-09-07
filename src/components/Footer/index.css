@@ -1,4 +1,4 @@
-@media screen and(min-width: 361px) {
+@media (min-width: 361px) {
   .footer-icons-card {
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@
   }
 }
 
-@media screen and(max-width: 361px) {
+@media (max-width: 361px) {
   .footer-icons-card {
     display: flex;
     flex-direction: column;

@@ -1,4 +1,4 @@
-@media screen and(min-width: 361px) {
+@media (min-width: 361px) {
   .not-found-background {
     display: flex;
     flex-direction: column;
@@ -38,12 +38,13 @@
   }
 }
 
-@media screen and(min-width: 361px) {
+@media (max-width: 361px) {
   .not-found-background {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 24px;
   }
   .not-found-image {
     width: 257px;
@@ -53,7 +54,7 @@
   }
   .not-found-btn {
     background-color: #0284c7;
-    border-radius: 5px;
+    border-radius: 8px;
     border: 0px none;
     width: 164px;
     color: #f8fafc;
@@ -73,6 +74,7 @@
     font-size: 20px;
     color: #475569;
     font-weight: 400px;
+    text-align: center;
   }
   .link {
     text-decoration: none;

@@ -1,4 +1,4 @@
-@media screen and(min-width: 361px) {
+@media (min-width: 361px) {
   .bookshelves-background {
     background-size: cover;
     background-color: #f5f7fa;
@@ -238,9 +238,12 @@
     color: #0284c7;
     margin-left: 10px;
   }
+  .bookshelves-footer {
+    text-align: center;
+  }
 }
 
-@media screen and(max-width: 361px) {
+@media (max-width: 361px) {
   .bookshelves-background {
     background-size: cover;
     background-color: #f5f7fa;
@@ -476,5 +479,9 @@
     font-weight: 500;
     color: #0284c7;
     margin-left: 10px;
+  }
+  .bookshelves-footer {
+    text-align: center;
+    margin-left: 125px;
   }
 }

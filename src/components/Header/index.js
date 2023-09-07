@@ -1,13 +1,12 @@
 import './index.css'
 import Cookies from 'js-cookie'
 import {Link, withRouter} from 'react-router-dom'
-import Popup from 'reactjs-popup'
 
 const Header = props => {
-  const {onMenubar} = props
+  const {onMenubarClick} = props
 
   const onClickMenubarBtn = () => {
-    onMenubar()
+    onMenubarClick()
   }
 
   const onLogout = () => {
@@ -48,44 +47,17 @@ const Header = props => {
         </div>
 
         <div className="popup-container">
-          <Popup
-            trigger={
-              <button
-                className="menu-bar-btn"
-                type="button"
-                onClick={onClickMenubarBtn}
-              >
-                <img
-                  className="menu-bar"
-                  src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1693204998/menu_k3dolt.svg"
-                  alt="menu"
-                />
-              </button>
-            }
-            position="bottom right"
+          <button
+            className="menu-bar-btn"
+            type="button"
+            onClick={onClickMenubarBtn}
           >
-            <div className="anchor-elements-card-small-devices">
-              <Link to="/" className="link">
-                <li>
-                  <h1 className="home-anchor-element">Home</h1>
-                </li>
-              </Link>
-              <Link to="/books" className="link">
-                <li>
-                  <h1 className="bookshelves-anchor-element">BookShelves</h1>
-                </li>
-              </Link>
-              <li>
-                <button
-                  className="logout-button"
-                  type="button"
-                  onClick={onLogout}
-                >
-                  Logout
-                </button>
-              </li>
-            </div>
-          </Popup>
+            <img
+              className="menu-bar"
+              src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1693204998/menu_k3dolt.svg"
+              alt="menu"
+            />
+          </button>
         </div>
       </ul>
     </nav>

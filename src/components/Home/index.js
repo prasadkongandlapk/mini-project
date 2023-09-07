@@ -27,6 +27,10 @@ class Home extends Component {
     this.getTopRatedBooks()
   }
 
+  onClickDeleteLinkBtn = () => {
+    this.setState({isMenubarClicked: false})
+  }
+
   getTopRatedBooks = async () => {
     const topRatedBooksUrl = 'https://apis.ccbp.in/book-hub/top-rated-books'
     const token = Cookies.get('jwt_token')
@@ -143,6 +147,40 @@ class Home extends Component {
     }
   }
 
+  linksForSmall = () => (
+    <div className="anchor-elements-card-small-devices">
+      <Link to="/" className="link">
+        <li>
+          <h1 className="home-anchor-element">Home</h1>
+        </li>
+      </Link>
+      <Link to="/books" className="link">
+        <li>
+          <h1 className="bookshelves-anchor-element">BookShelves</h1>
+        </li>
+      </Link>
+      <li>
+        <button className="logout-button" type="button">
+          Logout
+        </button>
+      </li>
+
+      <li>
+        <button
+          onClick={this.onClickDeleteLinkBtn}
+          className="remove-links-button"
+          type="button"
+        >
+          <img
+            className="links-delete-img"
+            src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1694063512/Solid_cuhp7e.svg"
+            alt="delete"
+          />
+        </button>
+      </li>
+    </div>
+  )
+
   onClickFindBooks = () => {
     const {history} = this.props
     history.replace('/books')
@@ -152,33 +190,9 @@ class Home extends Component {
     const {showFooter, isMenubarClicked} = this.state
     return (
       <div className="home-background">
-        <Header onMenubar={this.onMenubar} />
+        <Header onMenubarClick={this.onMenubar} />
+        {isMenubarClicked ? <div>{this.linksForSmall()}</div> : ''}
 
-        {isMenubarClicked ? (
-          <div className="menu-items">
-            <Link to="/" className="link">
-              <li>
-                <h1 className="home-anchor-element">Home</h1>
-              </li>
-            </Link>
-            <Link to="/books" className="link">
-              <li>
-                <h1 className="bookshelves-anchor-element">BookShelves</h1>
-              </li>
-            </Link>
-            <li>
-              <button
-                className="logout-button"
-                type="button"
-                onClick={this.onLogout}
-              >
-                Logout
-              </button>
-            </li>
-          </div>
-        ) : (
-          ''
-        )}
         <div className="home-heading-description-bg">
           <h1 className="home-main-heading">Find Your Next Favorite Books?</h1>
           <p className="home-description">
