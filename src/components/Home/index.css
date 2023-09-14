@@ -2,12 +2,11 @@ li {
   list-style: none;
 }
 .slick-prev {
-  left: 3% !important;
+  left: -10% !important;
   z-index: 1;
 }
 .slick-next {
-  background-color: black;
-  right: 3% !important;
+  right: -10% !important;
   z-index: 1;
 }
 @media (min-width: 361px) {

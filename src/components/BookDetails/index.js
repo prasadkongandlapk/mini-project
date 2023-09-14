@@ -35,8 +35,13 @@ class BookDetails extends Component {
     const {bookid} = params
 
     const bookUrl = `https://apis.ccbp.in/book-hub/books/${bookid}`
-
-    const response = await fetch(bookUrl)
+    const options = {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+    const response = await fetch(bookUrl, options)
     const data = await response.json()
     if (response.ok === true) {
       const formattedData = {
@@ -57,7 +62,7 @@ class BookDetails extends Component {
 
   loadingView = () => (
     <div className="book-loader" testid="loader">
-      <Loader type="ThreeDots" width={40} color="blue" />
+      <Loader type="TailSpin" width={40} color="blue" />
     </div>
   )
 
@@ -124,6 +129,12 @@ class BookDetails extends Component {
     }
   }
 
+  onLogoutInSmallDevices = () => {
+    Cookies.remove('jwt_token')
+    const {history} = this.props
+    history.replace('/login')
+  }
+
   onMenubar = () => {
     this.setState({isMenubarClicked: true})
   }
@@ -141,7 +152,11 @@ class BookDetails extends Component {
         </li>
       </Link>
       <li>
-        <button className="logout-button" type="button">
+        <button
+          onClick={this.onLogoutInSmallDevices}
+          className="logout-button"
+          type="button"
+        >
           Logout
         </button>
       </li>

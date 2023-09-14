@@ -113,7 +113,7 @@ class BookShelves extends Component {
 
   loadingView = () => (
     <div className="loader-bookshelves" data-testid="loader">
-      <Loader type="ThreeDots" width={40} color="blue" />
+      <Loader type="TailSpin" width={42} height={42} color="blue" />
     </div>
   )
 
@@ -166,7 +166,7 @@ class BookShelves extends Component {
     )
   }
 
-  onMenuBar = () => {
+  onMenubar = () => {
     this.setState({isMenubarClicked: true})
   }
 
@@ -229,6 +229,12 @@ class BookShelves extends Component {
     })
   }
 
+  onLogoutInSmallDevices = () => {
+    Cookies.remove('jwt_token')
+    const {history} = this.props
+    history.replace('/login')
+  }
+
   linksForSmall = () => (
     <div className="anchor-elements-card-small-devices">
       <Link to="/" className="link">
@@ -242,7 +248,11 @@ class BookShelves extends Component {
         </li>
       </Link>
       <li>
-        <button className="logout-button" type="button">
+        <button
+          onClick={this.onLogoutInSmallDevices}
+          className="logout-button"
+          type="button"
+        >
           Logout
         </button>
       </li>
@@ -362,7 +372,7 @@ class BookShelves extends Component {
             </div>
           </div>
         </div>
-        {showFooter && apiStatus !== 'LOADING' ? (
+        {showFooter && apiStatus !== 'LOADING' && booksData.length !== 0 ? (
           <div className="bookshelves-footer">
             <Footer />
           </div>

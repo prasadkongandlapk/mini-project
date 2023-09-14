@@ -73,7 +73,7 @@ class Home extends Component {
 
   onLoading = () => (
     <div className="loader-home" testid="loader">
-      <Loader type="ThreeDots" width={30} color="#0284c7" />
+      <Loader type="TailSpin" width={30} color="#0284c7" />
     </div>
   )
 
@@ -81,8 +81,19 @@ class Home extends Component {
     const {topRatedBooks} = this.state
     const settings = {
       dots: false,
-      slidesToShow: 2,
+      slidesToShow: 4,
       slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 360,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,
+          },
+        },
+      ],
     }
     return (
       <ul className="top-rated-books-ul-order">
@@ -131,6 +142,12 @@ class Home extends Component {
     history.replace('/login')
   }
 
+  onLogoutInSmallDevices = () => {
+    Cookies.remove('jwt_token')
+    const {history} = this.props
+    history.replace('/login')
+  }
+
   renderApiResult = () => {
     const {topRatedBooksApiStatus} = this.state
 
@@ -160,7 +177,11 @@ class Home extends Component {
         </li>
       </Link>
       <li>
-        <button className="logout-button" type="button">
+        <button
+          className="logout-button"
+          onClick={this.onLogoutInSmallDevices}
+          type="button"
+        >
           Logout
         </button>
       </li>
