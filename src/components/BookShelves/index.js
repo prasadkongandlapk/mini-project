@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
-import {AiOutlineSearch, AiTwotoneStar} from 'react-icons/ai'
+import {BsSearch, BsFillStarFill} from 'react-icons/bs'
 import Footer from '../Footer'
 import Header from '../Header'
 
@@ -134,7 +134,7 @@ class BookShelves extends Component {
                 <p className="each-book-author">{eachBook.authorName}</p>
                 <div className="rating-bg">
                   <p className="avg-rating">Avg Rating </p>
-                  <AiTwotoneStar className="star-icon" />
+                  <BsFillStarFill className="star-icon" />
                   <p className="rating">{eachBook.rating}</p>
                 </div>
                 <p className="status">
@@ -317,11 +317,12 @@ class BookShelves extends Component {
                   onChange={this.onChangeInput}
                 />
                 <button
+                  data-testid="searchButton"
                   type="button"
                   onClick={this.onClickSearchBtn}
                   className="search-btn"
                 >
-                  <AiOutlineSearch className="search-icon" />
+                  <BsSearch className="search-icon" />
                 </button>
               </div>
             </div>
@@ -342,7 +343,7 @@ class BookShelves extends Component {
                     onClick={this.onClickSearchBtn}
                     className="search-btn"
                   >
-                    <AiOutlineSearch className="search-icon" />
+                    <BsSearch className="search-icon" />
                   </button>
                 </div>
 
