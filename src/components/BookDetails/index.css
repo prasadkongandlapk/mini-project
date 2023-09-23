@@ -104,7 +104,7 @@
   .book-author {
     font-weight: 500;
     font-size: 24px;
-    height: 16px;
+    height: 32px;
     color: #475569;
     margin-bottom: 16px;
   }
@@ -152,6 +152,9 @@
   .book-footer {
     margin-top: 96px;
   }
+  .anchor-elements-card-small-devices {
+    display: none;
+  }
 }
 
 @media (max-width: 361px) {
@@ -167,6 +170,13 @@
     background-size: cover;
     padding-left: 24px;
     padding-right: 24px;
+  }
+  .anchor-elements-card-small-devices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 40px;
   }
 
   .book-author-title {
@@ -264,11 +274,11 @@
   }
 
   .book-rating-bg {
-    font-size: 16px;
-    font-weight: 500;
     display: flex;
     flex-direction: row;
     align-items: center;
+    height: 24px;
+    margin-left: 84px;
   }
   .book-status {
     font-size: 16px;

@@ -241,6 +241,9 @@
   .bookshelves-footer {
     text-align: center;
   }
+  .anchor-elements-card-small-devices {
+    display: none;
+  }
 }
 
 @media (max-width: 361px) {
@@ -254,9 +257,15 @@
     background-color: #f5f7fa;
     padding-left: 24px;
     padding-right: 41px;
-    padding-top: 24px;
     display: flex;
     flex-direction: column;
+  }
+  .anchor-elements-card-small-devices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-left: 40px;
   }
   .bookshelves-card-while-loading {
     padding-left: 150px;
@@ -375,7 +384,7 @@
     border-radius: 5px;
     display: flex;
     flex-direction: row;
-    margin-top: 24px;
+    margin-top: 10px;
     align-items: center;
     justify-content: space-between;
   }

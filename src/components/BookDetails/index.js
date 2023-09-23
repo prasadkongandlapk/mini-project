@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
 import Loader from 'react-loader-spinner'
-import {AiTwotoneStar} from 'react-icons/ai'
+import {BsFillStarFill} from 'react-icons/bs'
 import Header from '../Header'
 import Footer from '../Footer'
 
@@ -97,7 +97,7 @@ class BookDetails extends Component {
             <p className="book-author">{data.authorName}</p>
             <div className="book-rating-bg">
               <p className="book-avg-rating">Avg Rating </p>
-              <AiTwotoneStar className="book-star-icon" />
+              <BsFillStarFill className="book-star-icon" />
               <p className="book-rating">{data.rating}</p>
             </div>
             <p className="book-status">
@@ -146,7 +146,7 @@ class BookDetails extends Component {
           <h1 className="home-anchor-element">Home</h1>
         </li>
       </Link>
-      <Link to="/books" className="link">
+      <Link to="/shelf" className="link">
         <li>
           <h1 className="bookshelves-anchor-element">BookShelves</h1>
         </li>
