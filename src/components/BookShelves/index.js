@@ -112,7 +112,7 @@ class BookShelves extends Component {
   }
 
   loadingView = () => (
-    <div className="loader-bookshelves" data-testid="loader">
+    <div className="loader-bookshelves" testid="loader">
       <Loader type="TailSpin" width={42} height={42} color="blue" />
     </div>
   )
@@ -242,7 +242,7 @@ class BookShelves extends Component {
           <h1 className="home-anchor-element">Home</h1>
         </li>
       </Link>
-      <Link to="/books" className="link">
+      <Link to="/shelf" className="link">
         <li>
           <h1 className="bookshelves-anchor-element">BookShelves</h1>
         </li>
@@ -340,6 +340,7 @@ class BookShelves extends Component {
                   />
                   <button
                     type="button"
+                    data-testid="searchButton"
                     onClick={this.onClickSearchBtn}
                     className="search-btn"
                   >

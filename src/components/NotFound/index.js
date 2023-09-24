@@ -3,7 +3,11 @@ import {withRouter, Link} from 'react-router-dom'
 
 const NotFound = () => (
   <div className="not-found-background">
-    <img className="not-found-image" src="" alt="not found" />
+    <img
+      className="not-found-image"
+      src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1695544078/Group_7484_evaaj8.png"
+      alt="not found"
+    />
     <h1 className="not-found-heading">Page Not Found</h1>
     <p className="not-found-paragraph">
       we are sorry, the page you requested could not be found, Please go back to
