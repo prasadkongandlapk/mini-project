@@ -317,7 +317,7 @@ class BookShelves extends Component {
                   onChange={this.onChangeInput}
                 />
                 <button
-                  data-testid="searchButton"
+                  testid="searchButton"
                   type="button"
                   onClick={this.onClickSearchBtn}
                   className="search-btn"
@@ -340,7 +340,6 @@ class BookShelves extends Component {
                   />
                   <button
                     type="button"
-                    data-testid="searchButton"
                     onClick={this.onClickSearchBtn}
                     className="search-btn"
                   >
