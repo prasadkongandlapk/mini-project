@@ -123,6 +123,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 250px;
+    margin-left: 500px;
   }
   .title-and-search-bar {
     display: flex;
@@ -372,7 +373,7 @@
     justify-content: center;
     margin-top: 100px;
   }
-  .search-bg-small-devices {
+  .search-bg {
     display: flex;
     width: 264px;
     height: 36px;
@@ -388,9 +389,7 @@
     align-items: center;
     justify-content: space-between;
   }
-  .search-bg {
-    display: none;
-  }
+
   .search-btn {
     width: 52px;
     height: 34px;

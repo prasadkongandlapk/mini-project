@@ -177,7 +177,7 @@ class BookShelves extends Component {
         <img
           className="books-page-failure-img"
           src="https://res.cloudinary.com/dmmkzeslp/image/upload/v1693561561/Asset_1_1_wznbnf.png"
-          alt="not found"
+          alt="no books"
         />
         <p className="bookshelves-failure-text">
           Your search for {searchText} did not find any matches.
@@ -307,30 +307,9 @@ class BookShelves extends Component {
           <div>
             <div className="title-and-search-bar">
               <h1 className="all-books-text">All Books</h1>
-
-              <div className="search-bg">
-                <input
-                  className="search-bar"
-                  type="search"
-                  value={searchText}
-                  placeholder="Search"
-                  onChange={this.onChangeInput}
-                />
-                <button
-                  testid="searchButton"
-                  type="button"
-                  onClick={this.onClickSearchBtn}
-                  className="search-btn"
-                >
-                  <BsSearch className="search-icon" />
-                </button>
-              </div>
-            </div>
-            {apiStatus !== status.loading ? (
-              <>
-                {isMenubarClicked ? <div>{this.linksForSmall()}</div> : ''}
-
-                <div className="search-bg-small-devices">
+              {isMenubarClicked ? <div>{this.linksForSmall()}</div> : ''}
+              {apiStatus !== status.loading ? (
+                <div className="search-bg">
                   <input
                     className="search-bar"
                     type="search"
@@ -339,6 +318,7 @@ class BookShelves extends Component {
                     onChange={this.onChangeInput}
                   />
                   <button
+                    testid="searchButton"
                     type="button"
                     onClick={this.onClickSearchBtn}
                     className="search-btn"
@@ -346,7 +326,12 @@ class BookShelves extends Component {
                     <BsSearch className="search-icon" />
                   </button>
                 </div>
-
+              ) : (
+                ''
+              )}
+            </div>
+            {apiStatus !== status.loading ? (
+              <>
                 <h1 className="bookshelves-buttons-heading-small-devices">
                   Bookshelves
                 </h1>
