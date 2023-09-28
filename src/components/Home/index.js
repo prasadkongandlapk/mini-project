@@ -224,19 +224,11 @@ class Home extends Component {
             recommendations.
           </p>
         </div>
-        <button
-          onClick={this.onClickFindBooks}
-          className="find-books-btn-small-devices"
-          type="button"
-        >
-          Find Books
-        </button>
+
         <div className="top-rated-books-background">
           <div className="top-rated-books-text-and-find-books-btn-card">
-            <li>
-              <h1 className="top-rated-books-text">Top Rated Books</h1>
-            </li>
-            <li>
+            <h1 className="top-rated-books-text">Top Rated Books</h1>
+            <div className="find-books-btn-bg">
               <button
                 onClick={this.onClickFindBooks}
                 className="find-books-btn"
@@ -244,7 +236,7 @@ class Home extends Component {
               >
                 Find Books
               </button>
-            </li>
+            </div>
           </div>
           {this.renderApiResult()}
         </div>
