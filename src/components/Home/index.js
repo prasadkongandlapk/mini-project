@@ -90,7 +90,7 @@ class Home extends Component {
             slidesToShow: 2,
             slidesToScroll: 1,
             dots: false,
-            infinite: true,
+            infinite: false,
           },
         },
       ],
