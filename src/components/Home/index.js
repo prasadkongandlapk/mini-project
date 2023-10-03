@@ -90,10 +90,10 @@ class Home extends Component {
             slidesToShow: 2,
             slidesToScroll: 1,
             dots: false,
-            infinite: false,
           },
         },
       ],
+      infinite: false,
     }
     return (
       <ul className="top-rated-books-ul-order">
