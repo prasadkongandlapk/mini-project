@@ -67,6 +67,7 @@ class BookShelves extends Component {
     showFooter: true,
     searchText: '',
     isMenubarClicked: false,
+    bookshelfHeading: bookshelvesList[0].label,
   }
 
   componentDidMount() {
@@ -122,8 +123,8 @@ class BookShelves extends Component {
     return (
       <ul className="all-books-api-result-card">
         {booksData.map(eachBook => (
-          <Link to={`/books/${eachBook.id}`} className="link">
-            <li className="each-book-card">
+          <li className="each-book-card" key={eachBook.title}>
+            <Link to={`/books/${eachBook.id}`} className="link">
               <img
                 className="each-book-image"
                 src={eachBook.coverPic}
@@ -142,8 +143,8 @@ class BookShelves extends Component {
                   <span className="read-span">{eachBook.readStatus}</span>
                 </p>
               </div>
-            </li>
-          </Link>
+            </Link>{' '}
+          </li>
         ))}
       </ul>
     )
@@ -221,9 +222,17 @@ class BookShelves extends Component {
   }
 
   onClickCategories = id => {
+    const {bookshelfHeading} = this.state
     bookshelvesList.map(each => {
       if (each.id === id) {
-        this.setState({bookshelfName: each.value, isActive: id}, this.getBooks)
+        this.setState(
+          {
+            bookshelfHeading: each.label,
+            bookshelfName: each.value,
+            isActive: id,
+          },
+          this.getBooks,
+        )
       }
       return null
     })
@@ -281,6 +290,7 @@ class BookShelves extends Component {
       booksData,
       searchText,
       isActive,
+      bookshelfHeading,
     } = this.state
     const backgroundWhileLoading =
       apiStatus === status.loading
@@ -306,29 +316,25 @@ class BookShelves extends Component {
           </ul>
           <div>
             <div className="title-and-search-bar">
-              <h1 className="all-books-text">All Books</h1>
+              <h1 className="all-books-text">{bookshelfHeading} Books</h1>
               {isMenubarClicked ? <div>{this.linksForSmall()}</div> : ''}
-              {apiStatus !== status.loading ? (
-                <div className="search-bg">
-                  <input
-                    className="search-bar"
-                    type="search"
-                    value={searchText}
-                    placeholder="Search"
-                    onChange={this.onChangeInput}
-                  />
-                  <button
-                    testid="searchButton"
-                    type="button"
-                    onClick={this.onClickSearchBtn}
-                    className="search-btn"
-                  >
-                    <BsSearch className="search-icon" />
-                  </button>
-                </div>
-              ) : (
-                ''
-              )}
+              <div className="search-bg">
+                <input
+                  className="search-bar"
+                  type="search"
+                  value={searchText}
+                  placeholder="Search"
+                  onChange={this.onChangeInput}
+                />
+                <button
+                  testid="searchButton"
+                  type="button"
+                  onClick={this.onClickSearchBtn}
+                  className="search-btn"
+                >
+                  <BsSearch className="search-icon" />
+                </button>
+              </div>
             </div>
             {apiStatus !== status.loading ? (
               <>

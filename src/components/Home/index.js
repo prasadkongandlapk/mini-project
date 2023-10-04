@@ -99,8 +99,8 @@ class Home extends Component {
       <ul className="top-rated-books-ul-order">
         <Slider {...settings}>
           {topRatedBooks.map(eachBook => (
-            <Link to={`/books/${eachBook.id}`} className="link">
-              <li className="top-rated-books-list" key={eachBook.id}>
+            <li className="top-rated-books-list" key={eachBook.id}>
+              <Link to={`/books/${eachBook.id}`} className="link">
                 <img
                   className="cover-pic"
                   src={eachBook.coverPic}
@@ -110,8 +110,8 @@ class Home extends Component {
                 <p className="home-top-rated-book-author">
                   {eachBook.authorName}
                 </p>
-              </li>
-            </Link>
+              </Link>
+            </li>
           ))}
         </Slider>
       </ul>

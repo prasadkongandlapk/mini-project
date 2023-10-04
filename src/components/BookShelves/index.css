@@ -146,7 +146,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-left: 507px;
+    margin-left: 372px;
   }
 
   .bookshelves-buttons-heading-small-devices {
@@ -168,6 +168,8 @@
     color: #334155;
     font-size: 18px;
     font-weight: 600;
+    width: 216px;
+    margin-left: 5px;
   }
   .search-icon {
     height: 20px;
