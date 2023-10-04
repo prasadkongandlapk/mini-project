@@ -123,25 +123,27 @@ class BookShelves extends Component {
     return (
       <ul className="all-books-api-result-card">
         {booksData.map(eachBook => (
-          <li className="each-book-card" key={eachBook.title}>
+          <li key={eachBook.title}>
             <Link to={`/books/${eachBook.id}`} className="link">
-              <img
-                className="each-book-image"
-                src={eachBook.coverPic}
-                alt={eachBook.title}
-              />
-              <div className="each-book-details">
-                <h5 className="each-book-title">{eachBook.title}</h5>
-                <p className="each-book-author">{eachBook.authorName}</p>
-                <div className="rating-bg">
-                  <p className="avg-rating">Avg Rating </p>
-                  <BsFillStarFill className="star-icon" />
-                  <p className="rating">{eachBook.rating}</p>
+              <div className="each-book-card">
+                <img
+                  className="each-book-image"
+                  src={eachBook.coverPic}
+                  alt={eachBook.title}
+                />
+                <div className="each-book-details">
+                  <h5 className="each-book-title">{eachBook.title}</h5>
+                  <p className="each-book-author">{eachBook.authorName}</p>
+                  <div className="rating-bg">
+                    <p className="avg-rating">Avg Rating </p>
+                    <BsFillStarFill className="star-icon" />
+                    <p className="rating">{eachBook.rating}</p>
+                  </div>
+                  <p className="status">
+                    Status:
+                    <span className="read-span">{eachBook.readStatus}</span>
+                  </p>
                 </div>
-                <p className="status">
-                  Status:
-                  <span className="read-span">{eachBook.readStatus}</span>
-                </p>
               </div>
             </Link>{' '}
           </li>
